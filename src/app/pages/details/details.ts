@@ -1,9 +1,10 @@
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { Container } from '../../components/container/container';
 import { User } from '../../models/user';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from '../../services/user';
+import { ChangeDetectorRef } from '@angular/core';
 @Component({
   selector: 'app-details',
   imports: [
@@ -18,7 +19,8 @@ export class Details {
 
   constructor(
     private route: ActivatedRoute,
-    private userService: UserService
+    private userService: UserService,
+    private cdr : ChangeDetectorRef
   ){}
 
   ngOnInit(): void{
@@ -26,6 +28,7 @@ export class Details {
 
     this.userService.getUserById(id).subscribe(data => {
       this.user =data;
+      this.cdr.detectChanges();
     });
   }
 }

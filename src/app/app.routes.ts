@@ -5,6 +5,11 @@ import { Details } from './pages/details/details';
 export const routes: Routes = [
 
   {
+    path: '',
+    redirectTo: '/lista',
+    pathMatch: 'full'
+  },
+  {
     path: 'lista',
     component: List
   },

@@ -1,7 +1,4 @@
-export interface Geo {
-  lat: string;
-  lng: string;
-}
+
 
 export interface Address{
   street: string;

@@ -4,6 +4,7 @@ import { Card } from '../../components/card/card';
 import { UserService } from '../../services/user';
 import { User } from '../../models/user';
 import { CommonModule } from '@angular/common';
+import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-list',
@@ -19,12 +20,16 @@ import { CommonModule } from '@angular/common';
 export class List {
 
   users: User[] = [];
-  constructor(private userService: UserService){}
+  constructor(
+    private userService: UserService,
+    private cdr : ChangeDetectorRef
+  ){}
 
   ngOnInit(): void{
     this.userService.getUsers().subscribe(data => {
       console.log(data);
       this.users = data
+      this.cdr.detectChanges();
     })
   }
 }
