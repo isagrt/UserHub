@@ -1,11 +1,14 @@
-import { Component } from '@angular/core';
-
+import { Component, Input } from '@angular/core';
+import { Container } from '../../components/container/container';
+import { User } from '../../models/user';
 @Component({
   selector: 'app-details',
-  imports: [],
+  imports: [
+    Container
+  ],
   templateUrl: './details.html',
   styleUrl: './details.css',
 })
 export class Details {
-
+  @Input() user!: User;
 }
