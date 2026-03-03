@@ -2,14 +2,14 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { Container } from '../../components/container/container';
 import { User } from '../../models/user';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { UserService } from '../../services/user';
 import { ChangeDetectorRef } from '@angular/core';
 @Component({
   selector: 'app-details',
   imports: [
     Container,
-    CommonModule
+    CommonModule, RouterLink
   ],
   templateUrl: './details.html',
   styleUrl: './details.css',
