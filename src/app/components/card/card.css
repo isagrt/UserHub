@@ -73,7 +73,6 @@
 
 .buttonArea {
   margin-top: auto;
-  /* empurra o botão para baixo */
   display: flex;
   justify-content: center;
 }
@@ -93,3 +92,7 @@ button {
 button:hover {
   background: #87a685;
 }
+
+
+/*(1) o que é rota dinâmica, (2) o que é paramMap, (3) onde você usou
+Observable e por quê.*/
