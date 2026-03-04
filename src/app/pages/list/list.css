@@ -4,13 +4,13 @@ Fundo leve: #ECFDF5*/
 
 .container{
   margin: 0;
-  padding: 3px 60px;
+  padding: 30px 60px;
 }
 
 header {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* separa título e input */
+  justify-content: space-between;
   margin-bottom: 40px;
 }
 
@@ -47,6 +47,13 @@ header input:focus {
 
 .cardGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 24px;
+  align-items: stretch;
+}
+
+.unknownUser{
+  font-size: 40px;
+  font-weight: bold;
+  color: #455344;
 }

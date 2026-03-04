@@ -1,17 +1,17 @@
+<button class="backButton" [routerLink]="['/lista']">
+  <span class="material-icons">chevron_left</span>
+  Voltar
+</button>
 
-    <button  class="backButton" [routerLink]="['/lista']">
-     <span class="material-icons">chevron_left</span>
-      Voltar
-    </button>
+<p *ngIf="notFound">Usuário não encontrado</p>
+<p *ngIf="loading">Carregando...</p>
 
-
-  <p *ngIf="notFound">Usuário não encontrado</p>
-  <p *ngIf="loading">Carregando...</p>
-
-  <div *ngIf="!notFound && !loading && user">
-    <section class="infoHeader">
+<div *ngIf="!notFound && !loading && user">
+  <section class="infoHeader">
     <img class="photo" [src]="'https://ui-avatars.com/api/?name=' + user?.name" />
-    <h1 class="userName"><span>{{ user?.username }}</span></h1>
+    <h1 class="userName">
+      <span>{{ user?.username }}</span>
+    </h1>
   </section>
 
   <div class="infoContainer">
@@ -40,8 +40,7 @@
     </div>
     <div class="infoItem">
       <strong>Empresa:</strong>
-      <p> {{user?.company?.name}} </p>
+      <p>{{ user?.company?.name }}</p>
     </div>
   </div>
-
-  </div>
+</div>

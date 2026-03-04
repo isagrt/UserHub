@@ -15,5 +15,5 @@
     <app-card *ngFor="let user of filteredUsers" [user]="user"> </app-card>
   </div>
 
-  <p class="unknownUser" *ngIf="filteredUsers.length === 0 && searchTerm">Usuário não encontrado</p>
+  <p class="unknownUser" *ngIf="filteredUsers.length === 0 && searchTerm">Usuário não encontrado :(</p>
 </section>
