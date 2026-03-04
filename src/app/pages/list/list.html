@@ -1,22 +1,19 @@
-<app-container >
-  <p>Lista de Usuários!</p>
+<section class="container">
+  <header>
+    <div class="titleArea">
+      <h1>User<span>Hub</span></h1>
+      <h4>Seu app de contatos</h4>
+    </div>
 
-  <input
-  type="search"
-  placeholder="Pesquisar usuário"
-  [(ngModel)]="searchTerm">
+    <input type="search" placeholder="Pesquisar usuário" [(ngModel)]="searchTerm" />
+  </header>
 
-  <p *ngIf="loading"> Carregando usuários... </p>
-  <p *ngIf="error"> Erro ao carregar usuários </p>
+  <p *ngIf="loading">Carregando usuários...</p>
+  <p *ngIf="error">Erro ao carregar usuários</p>
 
-  <div *ngIf="!loading && !error">
-    <app-card
-    *ngFor="let user of filteredUsers"
-    [user]="user">
-  </app-card>
+  <div class="cardGrid" *ngIf="!loading && !error">
+    <app-card *ngFor="let user of filteredUsers" [user]="user"> </app-card>
   </div>
 
-   <p class="unknownUser" *ngIf="filteredUsers.length === 0 && searchTerm">
-    Usuário não encontrado
-  </p>
-</app-container>
+  <p class="unknownUser" *ngIf="filteredUsers.length === 0 && searchTerm">Usuário não encontrado</p>
+</section>

@@ -1,15 +1,21 @@
 <section class="card">
-<div class="info">
-<ul>
-  <li>Nome: {{user?.name}} </li>
-  <li>Email: {{user.email}}</li>
-  <li>Cidade: {{user.address.city}} </li>
-</ul>
-</div>
-<div class="buttonArea">
-  <button [routerLink]="['/user', user.id]">
-    Ver detalhes
-  </button>
-</div>
-</section>
 
+  <header>
+    <img class="photo" [src]="'https://ui-avatars.com/api/?name=' + user?.name" />
+  </header>
+
+  <div class="info">
+    <ul>
+      <li><strong>Nome:</strong> {{ user?.name }}</li>
+      <li><strong>Email:</strong> {{ user?.email }}</li>
+      <li><strong>Cidade:</strong> {{ user?.address?.city }}</li>
+    </ul>
+  </div>
+
+  <div class="buttonArea">
+    <button [routerLink]="['/user', user.id]">
+      Ver detalhes
+    </button>
+  </div>
+
+</section>

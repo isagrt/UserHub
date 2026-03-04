@@ -1,0 +1,52 @@
+/*Cor principal: #059669
+Hover: #047857
+Fundo leve: #ECFDF5*/
+
+.container{
+  margin: 0;
+  padding: 3px 60px;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* separa título e input */
+  margin-bottom: 40px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 36px;
+  color: #090e08;
+}
+header h1 span {
+  margin: 0;
+  font-size: 36px;
+  color: #87a685;
+}
+
+header h4 {
+  margin: 6px 0 16px;
+  color: #4B5563;
+  font-size: 16px;
+}
+
+header input {
+  padding: 10px 14px;
+  width: 260px;
+  border-radius: 8px;
+  border: 1px solid #3b3b3b;
+  outline: none;
+  transition: 0.2s;
+}
+
+header input:focus {
+  border-color: #3b3b3b;
+  box-shadow: 0 0 0 2px #87a6857c;
+}
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+}

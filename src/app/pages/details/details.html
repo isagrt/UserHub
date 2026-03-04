@@ -1,7 +1,8 @@
-<app-container >
-  <div class="backButton">
-    <button [routerLink]="['/lista']">Voltar</button>
-  </div>
+
+    <button  class="backButton" [routerLink]="['/lista']">
+     <span class="material-icons">chevron_left</span>
+      Voltar
+    </button>
 
 
   <p *ngIf="notFound">Usuário não encontrado</p>
@@ -44,4 +45,3 @@
   </div>
 
   </div>
-  </app-container>
