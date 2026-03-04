@@ -14,7 +14,7 @@ export const routes: Routes = [
     component: List
   },
   {
-  path:'detalhes/:id',
+  path:'user/:id',
   component: Details
   }
 ];

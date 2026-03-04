@@ -1,49 +1,53 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { Container } from '../../components/container/container';
-import { User } from '../../models/user';
-import { CommonModule } from '@angular/common';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { Container } from '../../components/container/container';
 import { UserService } from '../../services/user';
-import { ChangeDetectorRef } from '@angular/core';
+import { User } from '../../models/user';
+
 @Component({
   selector: 'app-details',
-  imports: [
-    Container,
-    CommonModule, RouterLink
-  ],
+  standalone: true,
+  imports: [CommonModule, Container, RouterLink],
   templateUrl: './details.html',
-  styleUrl: './details.css',
+  styleUrls: ['./details.css'],
 })
-export class Details {
+export class Details implements OnInit {
+
   user: User | null = null;
   loading: boolean = true;
-  error: boolean = false;
+  notFound: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
     private userService: UserService,
-    private cdr : ChangeDetectorRef
-  ){}
+    private cdr: ChangeDetectorRef
+  ) {}
 
-  ngOnInit(): void{
-    const id = Number(this.route.snapshot.paramMap.get('id'));
+  ngOnInit(): void {
 
-    this.loading = true;
-    this.error = false
+    this.route.paramMap.subscribe(params => {
 
-     this.userService.getUserById(id).subscribe({
-    next: (data) => {
-      this.user = data;
-      this.loading = false;
-      this.cdr.detectChanges();
+      const id = Number(params.get('id'));
 
-    },
-    error: () => {
-      this.error = true;
-      this.loading = false;
+      this.loading = true;
+      this.notFound = false;
 
+      this.userService.getUserById(id).subscribe({
+        next: (data) => {
+          this.user = data;
+          this.loading = false;
+          this.cdr.detectChanges();
+        },
+        error: (err) => {
+          if (err.status === 404) {
+            this.notFound = true;
+          }
+          this.loading = false;
+        }
+      });
 
-    }
-  });
+    });
+
   }
 }
