@@ -1,46 +1,54 @@
-<button class="backButton" [routerLink]="['/lista']">
-  <span class="material-icons">chevron_left</span>
-  Voltar
-</button>
-
-<p *ngIf="notFound">Usuário não encontrado</p>
-<p *ngIf="loading">Carregando...</p>
-
-<div *ngIf="!notFound && !loading && user">
-  <section class="infoHeader">
-    <img class="photo" [src]="'https://ui-avatars.com/api/?name=' + user?.name" />
-    <h1 class="userName">
-      <span>{{ user?.username }}</span>
-    </h1>
-  </section>
-
-  <div class="infoContainer">
-    <div class="infoItem">
-      <strong>Nome:</strong>
-      <p>{{ user?.name }}</p>
+<section class="container">
+  <header>
+    <div class="titleArea">
+      <h1>User<span>Hub</span></h1>
+      <h4>Seu app de contatos</h4>
     </div>
+  </header>
 
-    <div class="infoItem">
-      <strong>Email:</strong>
-      <p>{{ user?.email }}</p>
-    </div>
+  <p class="notFound" *ngIf="notFound">Usuário não encontrado :(</p>
+  <p class="loading" *ngIf="loading">Carregando...</p>
 
-    <div class="infoItem">
-      <strong>Telefone:</strong>
-      <p>{{ user?.phone }}</p>
-    </div>
+  <div *ngIf="!notFound && !loading && user">
+    <section class="infoHeader">
+      <img class="photo" [src]="'https://ui-avatars.com/api/?name=' + user?.name" />
+      <h1 class="userName">
+        <span>{{ user?.name }}</span>
+      </h1>
+    </section>
 
-    <div class="infoItem">
-      <strong>Cidade:</strong>
-      <p>{{ user?.address?.city }}</p>
+    <div class="infoContainer">
+      <div class="infoItem">
+        <strong>Nickname:</strong>
+        <p>@{{ user?.username }}</p>
+      </div>
+
+      <div class="infoItem">
+        <strong>Email:</strong>
+        <p>{{ user?.email }}</p>
+      </div>
+
+      <div class="infoItem">
+        <strong>Telefone:</strong>
+        <p>{{ user?.phone }}</p>
+      </div>
+
+      <div class="infoItem">
+        <strong>Cidade:</strong>
+        <p>{{ user?.address?.city }}</p>
+      </div>
+      <div class="infoItem">
+        <strong>Website:</strong>
+        <p>{{ user?.website }}</p>
+      </div>
+      <div class="infoItem">
+        <strong>Empresa:</strong>
+        <p>{{ user?.company?.name }}</p>
+      </div>
     </div>
-    <div class="infoItem">
-      <strong>Website:</strong>
-      <p>{{ user?.website }}</p>
-    </div>
-    <div class="infoItem">
-      <strong>Empresa:</strong>
-      <p>{{ user?.company?.name }}</p>
-    </div>
+    <button class="backButton" [routerLink]="['/lista']">
+      <span class="material-icons">chevron_left</span>
+      Voltar
+    </button>
   </div>
-</div>
+</section>

@@ -32,16 +32,16 @@ export class List {
   ngOnInit(): void {
     this.userService.getUsers().subscribe({
       next: (data) => {
-      console.log(data); /* Teste */
-      this.users = data
-      this.loading = false;
-      this.cdr.detectChanges();
-    },
-    error:() => {
-      this.error = true;
-      this.loading = false;
-    }
-  });
+        console.log(data); /* Teste */
+        this.users = data
+        this.loading = false;
+        this.cdr.detectChanges();
+      },
+      error: () => {
+        this.error = true;
+        this.loading = false;
+      }
+    });
   }
 
   searchTerm: string = '';

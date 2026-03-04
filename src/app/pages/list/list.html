@@ -8,12 +8,14 @@
     <input type="search" placeholder="Pesquisar usuário" [(ngModel)]="searchTerm" />
   </header>
 
-  <p *ngIf="loading">Carregando usuários...</p>
-  <p *ngIf="error">Erro ao carregar usuários</p>
+  <p class="loading" *ngIf="loading">Carregando usuários...</p>
+  <p class="error" *ngIf="error">Erro ao carregar usuários</p>
 
   <div class="cardGrid" *ngIf="!loading && !error">
     <app-card *ngFor="let user of filteredUsers" [user]="user"> </app-card>
   </div>
 
-  <p class="unknownUser" *ngIf="filteredUsers.length === 0 && searchTerm">Usuário não encontrado :(</p>
+  <p class="unknownUser" *ngIf="filteredUsers.length === 0 && searchTerm">
+    Usuário não encontrado :(
+  </p>
 </section>
