@@ -15,7 +15,9 @@ import { ChangeDetectorRef } from '@angular/core';
   styleUrl: './details.css',
 })
 export class Details {
-  user!: User;
+  user: User | null = null;
+  loading: boolean = true;
+  error: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -26,9 +28,22 @@ export class Details {
   ngOnInit(): void{
     const id = Number(this.route.snapshot.paramMap.get('id'));
 
-    this.userService.getUserById(id).subscribe(data => {
-      this.user =data;
+    this.loading = true;
+    this.error = false
+
+     this.userService.getUserById(id).subscribe({
+    next: (data) => {
+      this.user = data;
+      this.loading = false;
       this.cdr.detectChanges();
-    });
+
+    },
+    error: () => {
+      this.error = true;
+      this.loading = false;
+
+
+    }
+  });
   }
 }

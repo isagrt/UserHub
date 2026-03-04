@@ -6,9 +6,15 @@
   placeholder="Pesquisar usuário"
   [(ngModel)]="searchTerm">
 
-  <app-card
+  <p *ngIf="loading"> Carregando usuários... </p>
+  <p *ngIf="error"> Erro ao carregar usuários </p>
+
+  <div *ngIf="!loading && !error">
+    <app-card
     *ngFor="let user of filteredUsers"
     [user]="user">
   </app-card>
+  </div>
+
 
 </app-container>

@@ -22,24 +22,33 @@ import { FormsModule } from '@angular/forms';
 export class List {
 
   users: User[] = [];
+  loading: boolean = true;
+  error: boolean = false;
   constructor(
     private userService: UserService,
-    private cdr : ChangeDetectorRef
-  ){}
+    private cdr: ChangeDetectorRef
+  ) { }
 
-  ngOnInit(): void{
-    this.userService.getUsers().subscribe(data => {
-      console.log(data);
+  ngOnInit(): void {
+    this.userService.getUsers().subscribe({
+      next: (data) => {
+      console.log(data); /* Teste */
       this.users = data
+      this.loading = false;
       this.cdr.detectChanges();
-    })
+    },
+    error:() => {
+      this.error = true;
+      this.loading = false;
+    }
+  });
   }
 
   searchTerm: string = '';
-  
+
   get filteredUsers(): User[] {
-  return this.users.filter(user =>
-    user.name.toLowerCase().includes(this.searchTerm.toLowerCase()) /* filtra o usuario a partir do nome e converte para lowerCase */
-  );
-}
+    return this.users.filter(user =>
+      user.name.toLowerCase().includes(this.searchTerm.toLowerCase()) /* filtra o usuario a partir do nome e converte para lowerCase */
+    );
+  }
 }
