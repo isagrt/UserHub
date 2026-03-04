@@ -1,8 +1,13 @@
 <app-container >
   <p>Lista de Usuários!</p>
-  <input type="search">
+
+  <input
+  type="search"
+  placeholder="Pesquisar usuário"
+  [(ngModel)]="searchTerm">
+
   <app-card
-    *ngFor="let user of users"
+    *ngFor="let user of filteredUsers"
     [user]="user">
   </app-card>
 

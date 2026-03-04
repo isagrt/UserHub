@@ -5,6 +5,7 @@ import { UserService } from '../../services/user';
 import { User } from '../../models/user';
 import { CommonModule } from '@angular/common';
 import { ChangeDetectorRef } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-list',
@@ -13,6 +14,7 @@ import { ChangeDetectorRef } from '@angular/core';
     CommonModule,
     Container,
     Card,
+    FormsModule
   ],
   templateUrl: './list.html',
   styleUrl: './list.css',
@@ -32,4 +34,12 @@ export class List {
       this.cdr.detectChanges();
     })
   }
+
+  searchTerm: string = '';
+  
+  get filteredUsers(): User[] {
+  return this.users.filter(user =>
+    user.name.toLowerCase().includes(this.searchTerm.toLowerCase()) /* filtra o usuario a partir do nome e converte para lowerCase */
+  );
+}
 }
