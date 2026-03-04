@@ -16,5 +16,7 @@
   </app-card>
   </div>
 
-
+   <p class="unknownUser" *ngIf="filteredUsers.length === 0 && searchTerm">
+    Usuário não encontrado
+  </p>
 </app-container>
