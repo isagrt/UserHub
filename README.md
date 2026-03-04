@@ -1,59 +1,44 @@
-# UserHub
+# 📘 UserHub
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.2.
+## 📌 Sobre o Projeto
+O **UserHub** é uma aplicação desenvolvida em **Angular** que permite listar usuários e visualizar seus detalhes individualmente através de rotas dinâmicas.
+O sistema utiliza navegação baseada em parâmetros de URL para carregar informações específicas de cada usuário diretamente da API.
 
-## Development server
+---
 
-To start a local development server, run:
+## 🚀 Conceitos Técnicos Utilizados
 
-```bash
-ng serve
+### 🔹 1. O que é Rota Dinâmica?
+
+Uma **rota dinâmica** é uma rota que recebe um **parâmetro variável na URL**, permitindo que a aplicação carregue conteúdos diferentes conforme o valor informado.
+No UserHub, a rota dinâmica foi utilizada para acessar a página de detalhes do usuário através do seu ID.
+
+## Exemplo de rota utilizada no projeto
+
+```javascript
+{ path: 'user/:id', component: Details }
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+### 🔹 2. O que é paramMap?
 
-## Code scaffolding
+O **paramMap** é um objeto fornecido pelo Angular que permite acessar os **parâmetros da rota atual**.
+Ele é utilizado juntamente com o serviço **ActivatedRoute**.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Exemplo de rota utilizada no projeto
 
-```bash
-ng generate component component-name
+```javascript
+this.route.paramMap.subscribe(params => { 
+const id = Number(params.get('id')); 
+});
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### 🔹 3. Onde foi utilizado no projeto?
 
-```bash
-ng generate --help
-```
+No UserHub, a rota dinâmica e o paramMap foram aplicados na:
 
-## Building
+📌 Página de Detalhes do Usuário (Details)
 
-To build the project run:
+---
+## 👩‍💻 Autoria
 
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Projeto desenvolvido para fins acadêmicos utilizando conceitos de roteamento dinâmico no Angular.
