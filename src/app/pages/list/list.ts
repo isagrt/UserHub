@@ -21,7 +21,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class List {
 
-  users: User[] = [];
+  users: User[] = []; /* guarda os usuários que vem da API */
   loading: boolean = true;
   error: boolean = false;
   constructor(
@@ -30,14 +30,14 @@ export class List {
   ) { }
 
   ngOnInit(): void {
-    this.userService.getUsers().subscribe({
+    this.userService.getUsers().subscribe({ /* chama o metodo getUsers, recebe um Observable e usa subscribe() para executar a resposta da API */
       next: (data) => {
         console.log(data); /* Teste */
-        this.users = data
+        this.users = data /* salva o usuario */
         this.loading = false;
         this.cdr.detectChanges();
       },
-      error: () => {
+      error: () => { /* se ocorrer erro mostra mensagem e para o carregamento */
         this.error = true;
         this.loading = false;
       }

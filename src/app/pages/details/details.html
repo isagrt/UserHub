@@ -10,6 +10,7 @@
   <p class="loading" *ngIf="loading">Carregando...</p>
 
   <div *ngIf="!notFound && !loading && user">
+    
     <section class="infoHeader">
       <img class="photo" [src]="'https://ui-avatars.com/api/?name=' + user?.name" />
       <h1 class="userName">

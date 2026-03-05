@@ -11,6 +11,6 @@ import { RouterModule } from '@angular/router';
 })
 export class Card {
 
-  @Input() user!: User;
+  @Input() user!: User; /* guarda um objeto do tipo User */
 
 }
