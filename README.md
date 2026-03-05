@@ -51,7 +51,9 @@ Dessa forma, o componente pode reagir aos diferentes estados da requisição, co
 - loading: enquanto os dados ainda estão sendo carregados
 
 O uso de Observable segue o padrão do Angular para lidar com operações assíncronas e fluxos de dados, permitindo maior controle e reatividade na aplicação.
+
 ---
+
 ## 👩‍💻 Autoria
 
 Projeto desenvolvido para fins acadêmicos utilizando conceitos de roteamento dinâmico no Angular.
