@@ -44,6 +44,7 @@ export class Details implements OnInit {
             this.notFound = true;
           }
           this.loading = false;
+          this.cdr.detectChanges();
         }
       });
 

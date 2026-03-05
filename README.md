@@ -32,12 +32,25 @@ const id = Number(params.get('id'));
 });
 ```
 
-### 🔹 3. Onde foi utilizado no projeto?
+### 🔹 3. Onde foi utilizado Observable no projeto e porquê?
 
-No UserHub, a rota dinâmica e o paramMap foram aplicados na:
+O **Observable** foi utilizado no UserService nos métodos responsáveis por buscar dados da API:
 
-📌 Página de Detalhes do Usuário (Details)
+- getUsers()
 
+- getUserById(id: number)
+
+Esses métodos utilizam o HttpClient do Angular, que retorna dados de forma assíncrona. O Observable permite que o componente se inscreva (subscribe) na resposta da requisição HTTP e receba os dados quando eles estiverem disponíveis.
+
+Dessa forma, o componente pode reagir aos diferentes estados da requisição, como:
+
+- sucesso (next): quando os dados dos usuários são recebidos
+
+- erro (error): quando ocorre algum problema na requisição
+
+- loading: enquanto os dados ainda estão sendo carregados
+
+O uso de Observable segue o padrão do Angular para lidar com operações assíncronas e fluxos de dados, permitindo maior controle e reatividade na aplicação.
 ---
 ## 👩‍💻 Autoria
 
